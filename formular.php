@@ -100,11 +100,13 @@ if (isset($_POST["CUI"]) && isset($_POST)) {
             <p>Cu stima,</p>
             <p>Alexandra Ioan</p></body>
     </html>";
-        //wp_mail($to, $subject, $message, $headers);
+        wp_mail($to, $subject, $message, $headers);
         echo $to;
         $messageEu .= "<h4 style='text-transform: capitalize; margin-bottom: 0'>IP</h4>
             <div>$ip</div>";
         wp_mail("contact@alexwritescode.eu", $subjectEu, $messageEu, $headers);
+header('Location: '.$redirect);
+
     } catch (Exception $e) {
         echo "failed: " . $e->getMessage();
     }
